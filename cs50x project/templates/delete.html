@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete
+{% endblock %}
+
+{% block username %}
+    {{ username }}
+{% endblock %}
+
+{% block main %}
+    <div class="mgin-l">
+        <h1 class="mb-3">Search Entries:</h1>
+        <div class="gy-5 text-start" style="max-width: 250px; margin: auto;">
+            <div class="mb-3 form-floating">
+                <input class="form-control" type="date" id="from" name="from">
+                <label class="form-label" for="from">From:</label>
+            </div>
+            <div class="mb-3 form-floating">
+                <input class="form-control" type="date" id="to" name="to">
+                <label class="form-label" for="to">To:</label>
+            </div>
+            <div class="text-center">
+                <button id="button-text" type="submit" class="btn btn-primary mb-5" onclick="search()">Submit</button>
+            </div>
+        </div>
+
+        <div class="home-table" id="search"></div>
+    </div>
+
+    <script>
+
+        async function search() {
+            let _from = document.querySelector("#from");
+            let _to = document.querySelector("#to");
+            let url = "/delete";
+            let options = {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    from: `${_from.value}`,
+                    to: `${_to.value}`
+                })
+            }
+
+            let response = await fetch(url, options);
+            let query = await response.text();
+            if (query != "error"){
+                document.querySelector("#search").innerHTML = query;
+            }
+            else {
+                alert("Please provide both dates")
+            }
+            };
+
+        async function deleteEntryIncome(event) {
+            event.preventDefault();
+            let id = event.target[0].value
+            let response = await fetch("/delete_entry?type=income&id=" + id)
+            search()
+        }
+
+        async function deleteEntryExpense(event) {
+            event.preventDefault();
+            let id = event.target[0].value
+            let response = await fetch("/delete_entry?type=expense&id=" + id)
+            search()
+        }
+
+    </script>
+
+{% endblock %}
