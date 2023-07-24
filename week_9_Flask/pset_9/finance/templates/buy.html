@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+    <h2>Enter Details To Buy Stock</h2>
+    
+    <form action="/buy" method="post" class="container" style="max-width: 500px">
+        <div class="row mb-3">
+          <label for="symbol" class="col-sm-5 col-form-label">Stock Symbol</label>
+          <div class="col-sm-7">
+            <input type="text" name="symbol" class="form-control" id="symbol">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="shares" class="col-sm-5 col-form-label">Shares to buy</label>
+          <div class="col-sm-7">
+            <input type="number" name="shares" min="1" class="form-control" id="shares">
+          </div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Buy</button>
+      </form>
+
+{% endblock %}

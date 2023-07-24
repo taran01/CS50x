@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+
+        <h2>Latest Price:</h2>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Symbol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ search.name }}</td>
+                    <td>{{ search.price | usd }}</td>
+                    <td>{{ search.symbol }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

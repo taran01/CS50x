@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block password %}
+    <ul class="navbar-nav ms-auto mt-2">
+        <li class="nav-item"><a class="nav-link" href="/ch_password">Change Password</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover caption-top">
+        <caption>All stocks currently owned:</caption>
+        <thead>
+            <tr>
+                <th>Stocks</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in purchased %}
+            <tr>
+                <td>{{ stock.symbol.upper() }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ price[stock.symbol] | usd }}</td>
+                <td>{{ (price[stock.symbol] * stock.shares) | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table table-hover caption-top">
+        <caption>Total wealth:</caption>
+        <thead>
+            <tr>
+                <th>Current Balance</th>
+                <th>Total Stock Value</th>
+                <th>Grand Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cash[0]["cash"] | usd }}</td>
+                <td>{{ value | usd }}</td>
+                <td>{{ (cash[0]["cash"] + value) | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form></form>
+{% endblock %}

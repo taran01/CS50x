@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block username %}
+    {{ username }}
+{% endblock %}
+
+{% block main %}
+    <div class="mgin-l">
+        <h1 class="mb-3">Search Entries:</h1>
+        <div class="gy-5 text-start" style="max-width: 250px; margin: auto;">
+            <div class="mb-3 form-floating">
+                <input class="form-control" type="date" id="from" name="from">
+                <label class="form-label" for="from">From:</label>
+            </div>
+            <div class="mb-3 form-floating">
+                <input class="form-control" type="date" id="to" name="to">
+                <label class="form-label" for="to">To:</label>
+            </div>
+            <div class="text-center">
+                <button id="button-text" type="submit" class="btn btn-primary mb-5" onclick="search()">Submit</button>
+            </div>
+        </div>
+
+        <div class="home-table" id="search"></div>
+    </div>
+
+    <script>
+
+        async function search(){
+            let from = document.querySelector("#from");
+            let to = document.querySelector("#to");
+
+            let response = await fetch("/query?from=" + from.value + "&to=" + to.value);
+            let query = await response.text();
+            console.log(query)
+            if (query != "error"){
+                document.querySelector("#search").innerHTML = query;
+            }
+            else {
+                alert("Please provide both dates")
+            }
+            };
+
+    </script>
+{% endblock %}

@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+header {
+    height: 90px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.currentTab {
+    background-color: rgb(233, 32, 64);
+}
+
+ul li:hover:not(:first-child .currentTab) {
+    background-color: rgb(238, 237, 237);
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+ul li:not(:first-child) {
+    font-weight: bold;
+    margin: 0px 20px;
+    padding: 20px 20px;
+}
+
+.main {
+    background: url(https://canadianautodealer.ca/wp-content/uploads/2022/04/1-March-Q1-Auto-Sales-Remain-Depressed-1200.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50% ;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+}
+
+.mainFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    width: 280px;
+    background-color: rgba(233, 32, 64, .8);
+    padding: 15px;
+    margin: 20px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+    margin-left: 50%;
+}
+
+.link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+.searchbar {
+    width: 80%;
+    height: 40px;
+    margin: 0px auto;
+    display: block;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px;
+}
+
+.searchbar::placeholder {
+    color: grey;
+    padding: 20px;
+}
+
+.mainText {
+    margin-top: 5%;
+    width: 50%;
+    color: white;
+    font-size: 5rem;
+    font-family: helvetica;
+    font-weight: bold;
+    line-height: .9;
+    text-shadow: 5px 5px 15px black;
+}
+
+.form {
+    width: 70%;
+    height: 80%;
+    background-color: rgba(230, 230, 230, .9);
+    padding: 50px;
+}
+
+.textbox {
+    border: none;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+form button {
+    border: none;
+    padding: 5px 20px;
+    margin-left: 10px;
+}
+
+form button:hover {
+    background-color: rgb(200, 200, 200)
+}
+
+footer {
+    background-color: rgb(52, 52, 52);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer svg {
+    width: 30px;
+    height: 30px;
+}
+
+footer div {
+    padding: 10px 0px;
+    margin: 0px 50px;
+    text-align: center;
+}

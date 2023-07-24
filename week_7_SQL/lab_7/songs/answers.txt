@@ -1,0 +1,4 @@
+The Audio Aura of this person is confident and bold
+
+This aura might not be very representative of the listener because we're only measuring avg of danceability, energy and valor.
+We're missing other fields.

@@ -1,0 +1,30 @@
+sort1 uses: Bubble sort
+
+How do you know?: I've averaged the running time of each and every txt file for every sort method.
+                  Sort1's difference in running time was huge between sorted and random.
+                  We know big O of bubble sort is O(n2) and big Omega is (n).
+                  So that's why I chose sort1 to be bubble sort.
+
+sort2 uses: Merge sort
+
+How do you know?: Time difference between sort2 and sort3 was significant and sort2 was way better. So that's merge sort.
+
+sort3 uses: Selection sort
+
+How do you know?: Well only sort3 left so that'll be Selection sort.
+
+		    5000txt 10000txt 50000txt
+random
+	sort1 = .090s 	.300s 	9.0s
+	sort2 = .040s  	.090s 	2.5s
+	sort3 = .050s  	.170s 	4.5s
+
+reversed
+	sort1 = .090s 	.270s 	7.5s
+	sort2 = .030s 	.070s 	2.0s
+	sort3 = .065s 	.180s 	6.0s
+
+sorted
+	sort1 = .040s 	.085s 	2.5s
+	sort2 = .035s 	.080s 	2.0s
+	sort3 =	.070s 	.170s 	5.0s

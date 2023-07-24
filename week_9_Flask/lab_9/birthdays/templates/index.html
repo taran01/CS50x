@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form action="/" method="post">
+                    <input type="text" name="name" autocomplete="off" placeholder="Name">
+
+                    <span>Month<span>
+                    <select name="month">
+                        {% for i in range(12) %}
+                        <option value="{{ i + 1 }}">{{ i + 1 }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <span>Day</span>
+                    <select name="day">
+                        {% for i in range(31) %}
+                        <option value="{{ i + 1 }}">{{ i + 1 }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit">Add Birthday</button>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for birthday in birthdays %}
+                            <tr>
+                                <td>{{ birthday.name }}</td>
+                                <td>{{ birthday.month }} / {{ birthday.day }}</td>
+                                <td>
+                                    <form action="/deregister" method="post">
+                                        <input type="hidden" name="id" value="{{ birthday.id }}">
+                                        <button type="submit" class="remove">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+{% endblock %}

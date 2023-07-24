@@ -1,0 +1,15 @@
+		    5000txt 10000txt 50000txt
+random
+	sort1 = .090s 	.300s 	9.0s
+	sort2 = .040s  	.090s 	2.5s
+	sort3 = .050s  	.170s 	4.5s
+
+reversed
+	sort1 = .090s 	.270s 	7.5s
+	sort2 = .030s 	.070s 	2.0s
+	sort3 = .065s 	.180s 	6.0s
+
+sorted
+	sort1 = .040s 	.085s 	2.5s
+	sort2 = .035s 	.080s 	2.0s
+	sort3 =	.070s 	.170s 	5.0s
